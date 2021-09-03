@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public Rigidbody rd;
+    int score = 0;
+    Text showScore;
     // Start is called before the first frame update
     void Start()
     {
         rd = GetComponent<Rigidbody>();
+        showScore = GameObject.Find("Canvas/Text").GetComponent<Text>();
+        showScore.text = "0";
     }
 
     // Update is called once per frame
@@ -32,6 +37,8 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.tag == "food")
         {
+            score++;
+            showScore.text = score.ToString();
             Destroy(other.gameObject);
         }
     }
