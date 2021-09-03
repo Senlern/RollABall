@@ -16,7 +16,13 @@ public class Player : MonoBehaviour
     {
         //rd.AddForce(new Vector3(1,0,0));
         float h = Input.GetAxis("Horizontal");
-        Debug.Log(h);
-        rd.AddForce(new Vector3(h, 0, 0));
+        float v = Input.GetAxis("Vertical");
+        //Debug.Log(h);
+        rd.AddForce(new Vector3(h, 0, v));
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
     }
 }
