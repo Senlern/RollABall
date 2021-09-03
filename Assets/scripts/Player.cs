@@ -21,8 +21,18 @@ public class Player : MonoBehaviour
         rd.AddForce(new Vector3(h, 0, v));
     }
 
-    private void OnCollisionEnter(Collision collision)
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.gameObject.tag == "food")
+    //    {
+    //        Destroy(collision.gameObject);
+    //    }
+    //}
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.tag == "food")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
